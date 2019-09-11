@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *  64kb/50毫秒
- *	argu: -Xms100m -Xmx100m -XX:+UseSerialGC
+ *	argu: -Xms100m -Xmx100m -XX:+UseSerialGC +PrintGCDetails
  *
  */
 public class TestMemory {
@@ -22,10 +22,10 @@ public class TestMemory {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Thread.sleep(20000);
+		Thread.sleep(2000);
 		System.out.println("start ......");
 		fillHeap(100);
-		Thread.sleep(20000000);
+		Thread.sleep(2000);
 
 		Runtime runtime = Runtime.getRuntime();
 
