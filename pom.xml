@@ -54,6 +54,8 @@
 
         <zk.version>3.5.5</zk.version>
 
+        <kafka.version>0.10.0.0</kafka.version>
+
     </properties>
 
     <dependencies>

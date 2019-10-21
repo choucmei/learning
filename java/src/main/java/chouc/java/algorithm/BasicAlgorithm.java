@@ -1,5 +1,8 @@
 package chouc.java.algorithm;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BasicAlgorithm {
 
     public static int[] selectSort(int[] array) {
@@ -46,7 +49,7 @@ public class BasicAlgorithm {
         return array;
     }
 
-    public static void sort(int[] a, int low, int high) {
+    public static void quicklySort(int[] a, int low, int high) {
         int start = low;
         int end = high;
         int key = a[low];
@@ -67,20 +70,18 @@ public class BasicAlgorithm {
                 a[start] = a[end];
                 a[end] = temp;
             }
-            //此时第一次循环比较结束，关键值的位置已经确定了。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用
+            //此时第一次循环比较结束，关键值的位置已经确定了。、，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用
         }
         //递归
-        if (start > low) sort(a, low, start - 1);//左边序列。第一个索引位置到关键值索引-1
-        if (end < high) sort(a, end + 1, high);//右边序列。从关键值索引+1到最后一个
+        if (start - 1 > low) quicklySort(a, low, start - 1);//左边序列。第一个索引位置到关键值索引-1
+        if (end + 1 < high) quicklySort(a, end + 1, high);//右边序列。从关键值索引+1到最后一个
     }
 
     public static void main(String[] args) {
-        int arr[] = {6,2,7,3,8,9};
+        int arr[] = {7, 4, 2, 3, 9, 6};
 //        insertSort(arr);
-        sort(arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
+        quicklySort(arr, 0, arr.length - 1);
+        Arrays.parallelSort(arr);
     }
 
 }
