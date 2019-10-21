@@ -22,9 +22,7 @@ public class KafkaConsumerSimple  implements Runnable{
     @Override
     public void run() {
         Properties props = new Properties();
-//        props.put("zk.connect", "s1:2181,s2:2181,s3:2181");
-//        props.put("bootstrap.servers", "s1:9092");
-        props.put("bootstrap.servers", "192.168.1.208:9092,192.168.1.212:9092,192.168.1.211:9092");
+        props.put("bootstrap.servers", "192.168.90.97:9092");
         props.put("acks", "all");
         props.put("group.id", "testmxb");
         props.put("auto.offset.reset", "earliest");
@@ -33,15 +31,17 @@ public class KafkaConsumerSimple  implements Runnable{
         props.put("partitioner.class", "chou.component.kafka.MyLogPartitioner");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         Collection<String> collection = new HashSet<String>();
-        collection.add("zhihu");
+        collection.add("impression");
         Consumer<String, String> consumer = new KafkaConsumer<String, String>(props);
         consumer.subscribe(collection);
-        while (true) {
+        for (int i = 0 ;i <10;i++){
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println("consumer:" + consumeName +"key:" + record.key() + "-value:" + record.value());
             }
         }
+        consumer.commitAsync();
+        System.out.println("commit");
     }
 
     public static void main(String[] args) {
@@ -52,6 +52,7 @@ public class KafkaConsumerSimple  implements Runnable{
             System.out.println("========"+i);
             executorService.execute(new KafkaConsumerSimple("consume"+i));
         }
+
 
     }
 

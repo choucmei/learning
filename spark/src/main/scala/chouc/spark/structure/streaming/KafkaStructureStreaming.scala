@@ -17,14 +17,13 @@ class KafkaStructureStreaming {
 object KafkaStructureStreaming {
   val spark = SparkSession.builder().master("local[*]").getOrCreate()
   val df = spark.readStream.format("kafka")
-    .option("kafka.bootstrap.servers", "smaster01:9092")
-    .option("subscribe", "impression,terminalerror,terminalclick,adrequest,adflow,leftflow,rtbflow")
+    .option("kafka.bootstrap.servers", "bigdata-slave1:9092")
+    .option("subscribe", "huaxia")
     .option("startingOffsets", "latest")
     .load()
 
   val q = df.writeStream.foreach(new ForeachWriter[Row]() {
     override def open(partitionId: Long, version: Long): Boolean = {
-      println(s"partitionId:${partitionId} version:${version}")
       true
     }
 
