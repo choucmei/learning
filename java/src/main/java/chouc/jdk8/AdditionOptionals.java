@@ -17,7 +17,7 @@ public class AdditionOptionals {
         // isPresent（）： 如果值存在返回true，否则返回false
         optional.isPresent();           // true
         //get()：如果Optional有值则将其返回，否则抛出NoSuchElementException
-        optional.get();                 // "bam"
+        optional.get();                 // "bam、"
         //orElse（）：如果有值则将其返回，否则返回指定的其它值
         optional.orElse("fallback");    // "bam"
         //ifPresent（）：如果Optional实例有值则为其调用consumer，否则不做处理

@@ -8,15 +8,15 @@ class TaskProcessEventLoop(name:String) extends EventLoop[TaskEvent](name){
 
   /*
   override protected def onReceive(event: TaskEvent): Unit = event match {
-    case TaskSubmitted(name) => {
+    mycase TaskSubmitted(name) => {
       println(name + " submitted")
     }
 
-    case TaskSucceeded(name) => {
+    mycase TaskSucceeded(name) => {
       println(name + " succeeded")
     }
 
-    case TaskFailed(name) => {
+    mycase TaskFailed(name) => {
       println(name + " filled")
     }
   }

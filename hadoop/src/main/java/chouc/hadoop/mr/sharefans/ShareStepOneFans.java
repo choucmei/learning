@@ -61,8 +61,8 @@ public class ShareStepOneFans {
 		/* job.addCacheFile(uri) */// 缓存普通文件到task运行节点的工作目录
 
 
-        FileInputFormat.setInputPaths(job,new Path("/Users/chouc/Desktop/local_hadoop/case/sharefans/input"));
-        FileOutputFormat.setOutputPath(job,new Path("/Users/chouc/Desktop/local_hadoop/case/sharefans/out1"));
+        FileInputFormat.setInputPaths(job,new Path("/Users/chouc/Desktop/local_hadoop/mycase/sharefans/input"));
+        FileOutputFormat.setOutputPath(job,new Path("/Users/chouc/Desktop/local_hadoop/mycase/sharefans/out1"));
         boolean res = job.waitForCompletion(true);
         System.exit(res ? 0 : 1);
     }

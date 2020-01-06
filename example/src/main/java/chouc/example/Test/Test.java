@@ -1,9 +1,6 @@
 package chouc.example.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author chouc
@@ -31,6 +28,10 @@ public class Test {
         map.put("2","1");
         map.put("1","1");
         map.put("1","1");
+
+        Test test = null;
+//        System.out.println(.equals("123"));
+        System.out.println(Objects.equals(null,"SnailClimb"));
 
     }
 }

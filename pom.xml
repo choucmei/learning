@@ -16,6 +16,7 @@
         <module>scala</module>
         <module>spark</module>
         <module>example</module>
+        <module>flink</module>
     </modules>
 
     <repositories>
@@ -46,7 +47,8 @@
         <hbase.old.version>1.4.9</hbase.old.version>
         <hbase.version>2.1.5</hbase.version>
         <hadoop.version>2.9.2</hadoop.version>
-        <spark.version>2.2.1</spark.version>
+        <spark.version>2.4.1</spark.version>
+        <flink.version>1.9.0</flink.version>
         <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
 
@@ -89,6 +91,12 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.2</version>
         </dependency>
 
         <dependency>

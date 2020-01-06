@@ -47,7 +47,7 @@ public class MapSideJoin {
         }
     }
 
-//  /Users/chouc/Desktop/local_hadoop/case/mapsidejoin/info
+//  /Users/chouc/Desktop/local_hadoop/mycase/mapsidejoin/info
 
     public static void main(String[] args) throws IOException, URISyntaxException, ClassNotFoundException, InterruptedException {
         System.setProperty("hadoop.home.dir","/Users/chouc/Desktop/local_hadoop/hadoop-2.9.0");
@@ -65,12 +65,12 @@ public class MapSideJoin {
 		/* job.addCacheArchive(uri); */// 缓存压缩包文件到task运行节点的工作目录
 		/* job.addCacheFile(uri) */// 缓存普通文件到task运行节点的工作目录
 
-//        job.addCacheFile(new URI("/Users/chouc/Desktop/local_hadoop/case/mapsidejoin/info"));
+//        job.addCacheFile(new URI("/Users/chouc/Desktop/local_hadoop/mycase/mapsidejoin/info"));
 
 
 
-        FileInputFormat.setInputPaths(job,new Path("/Users/chouc/Desktop/local_hadoop/case/mapsidejoin/input"));
-        FileOutputFormat.setOutputPath(job,new Path("/Users/chouc/Desktop/local_hadoop/case/mapsidejoin/out"));
+        FileInputFormat.setInputPaths(job,new Path("/Users/chouc/Desktop/local_hadoop/mycase/mapsidejoin/input"));
+        FileOutputFormat.setOutputPath(job,new Path("/Users/chouc/Desktop/local_hadoop/mycase/mapsidejoin/out"));
         boolean res = job.waitForCompletion(true);
         System.exit(res ? 0 : 1);
     }

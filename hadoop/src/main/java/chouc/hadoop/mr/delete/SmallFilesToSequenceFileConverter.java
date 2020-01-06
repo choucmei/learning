@@ -67,7 +67,7 @@ public class SmallFilesToSequenceFileConverter extends Configured implements Too
 
 	public static void main(String[] args) throws Exception {
 		System.setProperty("hadoop.home.dir","/Users/chouc/Desktop/local_hadoop/hadoop-2.9.0");
-		args=new String[]{"/Users/chouc/Desktop/local_hadoop/case/combineFile/input","/Users/chouc/Desktop/local_hadoop/case/combineFile/out"};
+		args=new String[]{"/Users/chouc/Desktop/local_hadoop/mycase/combineFile/input","/Users/chouc/Desktop/local_hadoop/mycase/combineFile/out"};
 		int exitCode = ToolRunner.run(new SmallFilesToSequenceFileConverter(),
 				args);
 		System.exit(exitCode);

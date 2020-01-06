@@ -16,6 +16,6 @@ public class InverIndex {
     }
 
 
-    ///Users/chouc/Desktop/local_hadoop/case/inverindex/input
+    ///Users/chouc/Desktop/local_hadoop/mycase/inverindex/input
 
 }

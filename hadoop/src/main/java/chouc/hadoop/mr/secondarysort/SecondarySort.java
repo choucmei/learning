@@ -49,8 +49,8 @@ public class SecondarySort {
         job.setOutputKeyClass(OrderBean.class);
         job.setOutputValueClass(NullWritable.class);
 
-        FileInputFormat.setInputPaths(job, new Path("/Users/chouc/Desktop/local_hadoop/case/secondarysort/input"));
-        FileOutputFormat.setOutputPath(job, new Path("/Users/chouc/Desktop/local_hadoop/case/secondarysort/out1"));
+        FileInputFormat.setInputPaths(job, new Path("/Users/chouc/Desktop/local_hadoop/mycase/secondarysort/input"));
+        FileOutputFormat.setOutputPath(job, new Path("/Users/chouc/Desktop/local_hadoop/mycase/secondarysort/out1"));
 
         //在此设置自定义的Groupingcomparator类
         job.setGroupingComparatorClass(ItemidGroupingComparator.class);

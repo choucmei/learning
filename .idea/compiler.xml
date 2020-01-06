@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="example" />
+        <module name="flink" />
         <module name="hadoop" />
         <module name="java" />
         <module name="others" />

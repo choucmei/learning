@@ -15,8 +15,8 @@ public class LogEnhanceOutputFormat extends FileOutputFormat<Text, NullWritable>
     @Override
     public RecordWriter<Text, NullWritable> getRecordWriter(TaskAttemptContext taskAttemptContext) throws IOException, InterruptedException {
         FileSystem fileSystem = FileSystem.get(taskAttemptContext.getConfiguration());
-        Path enPath = new Path("/Users/chouc/Desktop/local_hadoop/case/logenhance/output/enhance/en.data");
-        Path crwPath = new Path("/Users/chouc/Desktop/local_hadoop/case/logenhance/output/crwPath/crw.data");
+        Path enPath = new Path("/Users/chouc/Desktop/local_hadoop/mycase/logenhance/output/enhance/en.data");
+        Path crwPath = new Path("/Users/chouc/Desktop/local_hadoop/mycase/logenhance/output/crwPath/crw.data");
         FSDataOutputStream enhancedOs = fileSystem.create(enPath);
         FSDataOutputStream crawldOs = fileSystem.create(crwPath);
         return new EnhanceRecordWriter(enhancedOs,crawldOs);

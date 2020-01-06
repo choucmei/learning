@@ -4,7 +4,7 @@ object PartialFuncDemo  {
 
   def func1: PartialFunction[String, Int] = {
     case "one" => {
-      println("one case")
+      println("one mycase")
       1
     }
     case "two" => 2

@@ -5,18 +5,18 @@ object CaseDemo03 extends App{
 
 //  val arr = Array(0, 1, 5, 7)
 //  arr match {
-//    case Array(1, x, y) => println(x + " " + y)
-//    case Array(1, 1, 5) => println("only 0")
-//    case Array(0, _*) => println("0 ...")
-//    case _ => println("something else")
+//    mycase Array(1, x, y) => println(x + " " + y)
+//    mycase Array(1, 1, 5) => println("only 0")
+//    mycase Array(0, _*) => println("0 ...")
+//    mycase _ => println("something else")
 //  }
 
 //  val lst = List(0, 3, 4,5)
 //  lst match {
-//    case 0 :: Nil => println("only 0")
-//    case x :: y :: Nil => println(s"x: $x y: $y")
-//    case 0 :: a => println(s"0 ... $a")
-//    case _ => println("something else")
+//    mycase 0 :: Nil => println("only 0")
+//    mycase x :: y :: Nil => println(s"x: $x y: $y")
+//    mycase 0 :: a => println(s"0 ... $a")
+//    mycase _ => println("something else")
 //  }
 
   val tup = (6, 3, 5)

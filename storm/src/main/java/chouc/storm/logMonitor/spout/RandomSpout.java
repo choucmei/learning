@@ -98,7 +98,7 @@ public class RandomSpout extends BaseRichSpout {
         list.add("1$$$$$error C2082: redefinition of formal parameter bReset");
         list.add("1$$$$$error C2143: syntax error: missing : before  ");
         list.add("1$$$$$error C2146: syntax error : missing ';' before identifier dc");
-        list.add("2$$$$$error C2196: case value '69' already used");
+        list.add("2$$$$$error C2196: mycase value '69' already used");
         list.add("1$$$$$error C2509: 'OnTimer' : member function not declared in 'CHelloView'");
         list.add("1$$$$$error C2555: 'B::f1': overriding virtual function differs from 'A::f1' only by return type or calling convention");
         list.add("1$$$$$error C2511: 'reset': overloaded member function 'void (int)' not found in 'B'");

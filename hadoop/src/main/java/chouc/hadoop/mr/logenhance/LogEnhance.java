@@ -77,11 +77,11 @@ public class LogEnhance {
         // 要控制不同的内容写往不同的目标路径，可以采用自定义outputformat的方法
         job.setOutputFormatClass(LogEnhanceOutputFormat.class);
 
-        FileInputFormat.setInputPaths(job, new Path("/Users/chouc/Desktop/local_hadoop/case/logenhance/input"));
+        FileInputFormat.setInputPaths(job, new Path("/Users/chouc/Desktop/local_hadoop/mycase/logenhance/input"));
 
         // 尽管我们用的是自定义outputformat，但是它是继承制fileoutputformat
         // 在fileoutputformat中，必须输出一个_success文件，所以在此还需要设置输出path
-        FileOutputFormat.setOutputPath(job, new Path("/Users/chouc/Desktop/local_hadoop/case/logenhance/output"));
+        FileOutputFormat.setOutputPath(job, new Path("/Users/chouc/Desktop/local_hadoop/mycase/logenhance/output"));
 
         // 不需要reducer
         job.setNumReduceTasks(0);

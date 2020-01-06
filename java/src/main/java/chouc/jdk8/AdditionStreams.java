@@ -95,6 +95,7 @@ public class AdditionStreams {
         // Parallel AdditionStreams(并行流)
         stringList.parallelStream().sorted();
 
+        Runnable r = ()-> System.out.println();
 
 
     }
