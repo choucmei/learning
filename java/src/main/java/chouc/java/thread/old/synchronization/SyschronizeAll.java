@@ -1,10 +1,10 @@
-package chouc.java.thread.synchronization;
+package chouc.java.thread.old.synchronization;
 
 /**
  * @author chouc
  * @version V1.0
  * @Title: SyschronizeAll
- * @Package chouc.java.thread.synchronization
+ * @Package chouc.java.thread.old.synchronization
  * @Description:
  * @date 9/11/19
  */

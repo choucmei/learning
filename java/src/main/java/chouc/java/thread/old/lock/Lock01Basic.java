@@ -1,4 +1,4 @@
-package chouc.java.thread.lock;
+package chouc.java.thread.old.lock;
 
 import java.util.Random;
 import java.util.concurrent.locks.Lock;
@@ -18,7 +18,7 @@ public class Lock01Basic {
                 System.out.println(" thread 0 gain lock ,then it sleeping");
                 Random random = new Random();
                 try {
-                    Thread.sleep(random.nextInt(10)*100);
+                    Thread.sleep(random.nextInt(10)*1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -34,7 +34,7 @@ public class Lock01Basic {
                 System.out.println(" thread 1 gain lock ,then it sleeping");
                 Random random = new Random();
                 try {
-                    Thread.sleep(random.nextInt(10)*100);
+                    Thread.sleep(random.nextInt(10)*1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

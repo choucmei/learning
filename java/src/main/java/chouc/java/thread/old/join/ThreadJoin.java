@@ -1,4 +1,4 @@
-package chouc.java.thread.join;
+package chouc.java.thread.old.join;
 
 public class ThreadJoin implements Runnable {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package chouc.java.thread.synchronization;
+package chouc.java.thread.old.synchronization;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package chouc.java.thread.lock;
+package chouc.java.thread.old.lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

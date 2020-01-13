@@ -1,4 +1,4 @@
-package chouc.java.thread.pool;
+package chouc.java.thread.old.pool;
 
 import java.util.concurrent.*;
 

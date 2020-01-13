@@ -1,4 +1,4 @@
-package chouc.java.thread.notify;
+package chouc.java.thread.old.notify;
 
 public class NotifyExample {
     static Object lock1 = new Object();
@@ -22,6 +22,7 @@ public class NotifyExample {
                 e.printStackTrace();
             }
         });
+
         Thread thread2 = new Thread(()-> {
             try {
                 lock1.wait();
@@ -36,6 +37,7 @@ public class NotifyExample {
             }
             lock2.notify();
         });
+
         Thread thread3 = new Thread(()-> {
             try {
                 lock2.wait();
