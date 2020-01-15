@@ -1,4 +1,4 @@
-package chouc.spark.mycase
+package chouc.spark.sql
 
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}

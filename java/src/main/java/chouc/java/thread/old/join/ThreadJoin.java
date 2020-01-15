@@ -15,6 +15,7 @@ public class ThreadJoin implements Runnable {
         thread3.start();
     }
 
+
     @Override
     public void run() {
         try {
@@ -28,5 +29,6 @@ public class ThreadJoin implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println(Thread.currentThread().getName() + " end ");
     }
 }

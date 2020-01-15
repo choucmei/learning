@@ -1,8 +1,7 @@
-package chouc.spark.mycase
+package chouc.spark.sql
 
-import chouc.spark.sql.Data
 import org.apache.spark.sql.expressions.Window
-import org.apache.spark.sql.functions.{desc, rank, row_number, udf, col, lit}
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.junit.{Before, Test}
 

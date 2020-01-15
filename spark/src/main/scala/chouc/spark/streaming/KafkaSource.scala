@@ -1,5 +1,4 @@
-package chouc.spark.structure.streaming
-
+package chouc.spark.streaming
 
 import org.apache.spark.sql.{ForeachWriter, Row, SparkSession}
 
