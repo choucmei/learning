@@ -1,9 +1,5 @@
 package chouc.spark.rdd
 
-import java.util.UUID
-
-import org.apache.spark.sql.{ForeachWriter, SparkSession}
-import org.apache.spark.sql.streaming.DataStreamWriter
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -17,14 +13,19 @@ import org.apache.spark.{SparkConf, SparkContext}
 object DefaultPartitionsNum {
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder().master("local[*]").getOrCreate()
-    import spark.implicits._
-    val rdda = spark.sparkContext.textFile("/Users/chouc/Work/IdeaProjects/learning/learning/spark/src/main/resources/example/content").flatMap(_.split(" ")).map((_,1))
-    val rddb = spark.sparkContext.textFile("/Users/chouc/Work/IdeaProjects/learning/learning/spark/src/main/resources/example/content").flatMap(_.split(" ")).map((_,1))
+    System.setProperty("hadoop.home.dir","D:\\Development\\hadoop-2.9.2")
+    val sparkConf = new SparkConf()
+    sparkConf.setMaster("local[*]").setAppName("ms")
+    val sparkContext = SparkContext.getOrCreate(sparkConf)
+    sparkContext.setCheckpointDir("D:\\Development\\IdeaProjects\\chouc\\learning\\spark\\src\\main\\resources\\example\\")
+    val rdd1 = sparkContext.textFile("D:\\Development\\IdeaProjects\\chouc\\learning\\spark\\src\\main\\resources\\example\\content")
+    println(rdd1.getNumPartitions)
+    val rdd2 = rdd1.flatMap(_.split(" ")).map((_, 1))
 
-    rdda.cartesian(rddb)
+    sparkContext.broadcast()
 
-
+    rdd2.checkpoint()
+    rdd2.foreach(println(_))
   }
 
 }

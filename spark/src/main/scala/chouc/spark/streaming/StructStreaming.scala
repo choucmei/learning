@@ -1,17 +1,8 @@
-package chouc.spark.rdd
+package chouc.spark.streaming
 
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
-import java.util.{Date, Properties, UUID}
+import java.util.Properties
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
-import org.apache.spark.examples.sql.SparkSQLExample.Person
-import org.apache.spark.sql.catalyst.expressions.GenericRowWithSchema
-import org.apache.spark.sql.{ForeachWriter, Row, SparkSession}
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.streaming.OutputMode
-// nc -lk 8888
-
 
 /**
   * @Title: StructStreaming

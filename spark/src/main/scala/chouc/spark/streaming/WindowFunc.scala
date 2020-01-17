@@ -1,4 +1,4 @@
-package chouc.spark.structure.streaming
+package chouc.spark.streaming
 
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
