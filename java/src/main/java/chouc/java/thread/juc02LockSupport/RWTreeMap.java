@@ -1,4 +1,4 @@
-package chouc.java.thread.juc02;
+package chouc.java.thread.juc02LockSupport;
 
 import java.util.Map;
 import java.util.TreeMap;

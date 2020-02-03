@@ -1,4 +1,4 @@
-package chouc.java.thread.juc09atomicarray;
+package chouc.java.thread.juc09AtomicIntegerArray;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 

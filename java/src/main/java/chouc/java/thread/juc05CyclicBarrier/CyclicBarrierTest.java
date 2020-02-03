@@ -1,4 +1,4 @@
-package chouc.java.thread.juc05;
+package chouc.java.thread.juc05CyclicBarrier;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

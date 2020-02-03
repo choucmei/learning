@@ -1,4 +1,4 @@
-package chouc.java.thread.juc07;
+package chouc.java.thread.juc07StampedLock;
 
 import java.util.concurrent.locks.StampedLock;
 

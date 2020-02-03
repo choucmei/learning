@@ -1,4 +1,4 @@
-package chouc.java.thread.juc11longadder;
+package chouc.java.thread.juc11LongAdder;
 
 import java.util.concurrent.atomic.LongAdder;
 

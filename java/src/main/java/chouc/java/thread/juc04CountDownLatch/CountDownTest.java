@@ -1,4 +1,4 @@
-package chouc.java.thread.juc04;
+package chouc.java.thread.juc04CountDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 

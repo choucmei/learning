@@ -1,4 +1,4 @@
-package chouc.java.thread.juc08atomic;
+package chouc.java.thread.juc08Atomic;
 
 import java.util.concurrent.atomic.AtomicMarkableReference;
 

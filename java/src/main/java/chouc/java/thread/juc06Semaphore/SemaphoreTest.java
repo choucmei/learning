@@ -1,4 +1,4 @@
-package chouc.java.thread.juc06;
+package chouc.java.thread.juc06Semaphore;
 
 import java.util.ArrayList;
 import java.util.List;

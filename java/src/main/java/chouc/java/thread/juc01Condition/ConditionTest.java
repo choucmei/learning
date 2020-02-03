@@ -1,4 +1,4 @@
-package chouc.java.thread.juc01;
+package chouc.java.thread.juc01Condition;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
