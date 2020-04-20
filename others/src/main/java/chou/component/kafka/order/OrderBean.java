@@ -166,7 +166,7 @@ public class OrderBean {
     }
 
     public String random() {
-        this.productId = "12121212";
+        this.productId = "productId";
         this.orderId = UUID.randomUUID().toString().replaceAll("-", "");
         this.paymentId = UUID.randomUUID().toString().replaceAll("-", "");
         this.productPrice = new Random().nextInt(1000);

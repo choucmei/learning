@@ -136,6 +136,14 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.48</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.4.6.v20170531</version>
+        </dependency>
+
     </dependencies>
 
 

@@ -20,15 +20,15 @@ public class DistributedClient {
         zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
             public void process(WatchedEvent watchedEvent) {
                 //收到时间通知的回调函数
-//                System.out.println(watchedEvent.getType() + "---" + watchedEvent.getPath());
-//
-//                try {
-//                    zooKeeper.getChildren("/server/",true);
-//                } catch (KeeperException e) {
-//                    e.printStackTrace();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                System.out.println(watchedEvent.getType() + "---" + watchedEvent.getPath());
+
+                try {
+                    zooKeeper.getChildren("/server/",true);
+                } catch (KeeperException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 try {
                     getServerList();
                 } catch (KeeperException e) {

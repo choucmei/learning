@@ -22,16 +22,14 @@ public class KafkaConsumerSimple  implements Runnable{
     @Override
     public void run() {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.90.97:9092");
-        props.put("acks", "all");
-        props.put("group.id", "testmxb");
+        props.put("bootstrap.servers", "s1:9092");
+        props.put("group.id", "test_mxb");
         props.put("auto.offset.reset", "earliest");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("partitioner.class", "chou.component.kafka.MyLogPartitioner");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         Collection<String> collection = new HashSet<String>();
-        collection.add("impression");
+        collection.add("test_mxb");
         Consumer<String, String> consumer = new KafkaConsumer<String, String>(props);
         consumer.subscribe(collection);
         for (int i = 0 ;i <10;i++){
@@ -49,7 +47,6 @@ public class KafkaConsumerSimple  implements Runnable{
         ExecutorService executorService = Executors.newFixedThreadPool(4);
 
         for (int i = 0; i < 4; i++) {
-            System.out.println("========"+i);
             executorService.execute(new KafkaConsumerSimple("consume"+i));
         }
 

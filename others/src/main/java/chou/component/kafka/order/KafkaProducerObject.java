@@ -6,7 +6,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
 
-public class GenerateOrder {
+public class KafkaProducerObject {
 
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();

@@ -24,33 +24,29 @@ import java.util.Map.Entry;
  */
 public class KafkaOffsetTools {
 
-    public static void getOffset() {
+    public static void getOffset(String topic,String brokerIp,int brokerPort,String consumerGroup) {
 
-        String topic = "impression";
-        String broker = "192.168.90.97";
-        int port = 9092;
-        String group = "testmxb";
-        String clientId = "sparkle_Kafka2Spark";
+        String clientId = UUID.randomUUID().toString();
         int correlationId = 0;
         //超时时长
-        BlockingChannel channel = new BlockingChannel(broker, port,
+        BlockingChannel channel = new BlockingChannel(brokerIp, brokerPort,
                 BlockingChannel.UseDefaultBufferSize(),
                 BlockingChannel.UseDefaultBufferSize(),
                 5000);
         channel.connect();
 
-        List<String> seeds = new ArrayList<String>();
-        seeds.add(broker);
+        List<String> seeds = new ArrayList<>();
+        seeds.add(brokerIp);
         //本类
         KafkaOffsetTools kot = new KafkaOffsetTools();
         //分区号 分区元数据
-        TreeMap<Integer, PartitionMetadata> metadatas = kot.findLeader(seeds, port, topic);
+        TreeMap<Integer, PartitionMetadata> metadatas = kot.findLeader(seeds, brokerPort, topic);
 
         long sum = 0l;
         long sumOffset = 0l;
         long lag = 0l;
         //存放Topic和分区号
-        List<TopicAndPartition> partitions = new ArrayList<TopicAndPartition>();
+        List<TopicAndPartition> partitions = new ArrayList<>();
         //遍历分区和元数据信息
         for (Entry<Integer, PartitionMetadata> entry : metadatas.entrySet()) {
             //topic  分区的id
@@ -59,7 +55,7 @@ public class KafkaOffsetTools {
             partitions.add(testPartition);
         }
         OffsetFetchRequest fetchRequest = new OffsetFetchRequest(
-                group,
+                consumerGroup,
                 partitions,
                 (short) 0,
                 correlationId,
@@ -72,8 +68,7 @@ public class KafkaOffsetTools {
                 TopicAndPartition testPartition0 = new TopicAndPartition(topic, partition);
                 OffsetMetadataAndError result = fetchResponse.offsets().get(testPartition0);
                 short offsetFetchErrorCode = result.error();
-                if (offsetFetchErrorCode == ErrorMapping.NotCoordinatorForConsumerCode()) {
-                } else {
+                if (offsetFetchErrorCode != ErrorMapping.NotCoordinatorForConsumerCode()) {
                     //恢复偏移量
                     long retrievedOffset = result.offset();
                     System.out.println(partition+"-"+result.offset());
@@ -82,7 +77,7 @@ public class KafkaOffsetTools {
                 //获取 topic 元数据中的leader名称
                 String leadBroker = entry.getValue().leader().host();
                 String clientName = "Client_" + topic + "_" + partition;
-                SimpleConsumer consumer = new SimpleConsumer(leadBroker, port, 100000,
+                SimpleConsumer consumer = new SimpleConsumer(leadBroker, brokerPort, 100000,
                         64 * 1024, clientName);
                 long readOffset = getLastOffset(consumer, topic, partition,
                         kafka.api.OffsetRequest.LatestTime(), clientName);
@@ -183,6 +178,6 @@ public class KafkaOffsetTools {
     }
 
     public static void main(String[] args) {
-        getOffset();
+        getOffset("test_mxb","master01",9092,"test");
     }
 }
