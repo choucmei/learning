@@ -47,10 +47,10 @@
         <hbase.old.version>1.4.9</hbase.old.version>
         <hbase.version>2.1.5</hbase.version>
         <hadoop.version>2.9.2</hadoop.version>
-        <spark.version>2.4.1</spark.version>
+        <spark.version>3.0.0</spark.version>
         <flink.version>1.9.0</flink.version>
         <scala.version>2.11.8</scala.version>
-        <scala.binary.version>2.11</scala.binary.version>
+        <scala.binary.version>2.12</scala.binary.version>
 
         <storm.version>1.2.3</storm.version>
 

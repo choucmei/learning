@@ -4,31 +4,76 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Properties;
+import java.util.UUID;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ *
+ *  get recevier offset cmd:
+ *  kafka-run-class kafka.tools.GetOffsetShell --broker-list s1:9092  --topic test_mxb
+ *
+ */
 public class KafkaProducerSimple {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
-
-//        props.put("zk.connect", "s1:2181,s2:2181,s3:2181");
-//        props.put("bootstrap.servers", "192.168.1.208:9092,192.168.1.212:9092,192.168.1.211:9092");
+        props.put("bootstrap.servers", "s1:9092");
         props.put("acks", "all");
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("partitioner.class", "chou.component.kafka.simple.MyLogPartitioner");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
-        Producer<String, String> producer = new KafkaProducer<String, String>(props);
-        SimpleDateFormat smft=new SimpleDateFormat("YYYY/MM/dd/  HH:mm:ss E");
+        int threadNum = 2;
+        long interval = 200l;
+        String topic = "test_mxb";
 
-        for (int i = 1; i <= 10; i++) {
-            Thread.sleep(200);
-            String nowString=smft.format(new Date());
-            producer.send(new ProducerRecord<String, String>("mst","2e3e1f60-9d71-43c5-b61f-69a48607f7bc#FE,F8,03,30,30,31,41,E2,07,0A,12,10,1E,18,0C,06,01,A2,07,02,8F,0A,03,D4,07,04,E9,09,05,A6,03,06,53,03,07,15,0B,08,F7,02,09,75,04,0A,DE,04,0B,77,0A,0C,E8,03,01,42,03,04,45,06,1B,00,C0"));
-            System.out.println( "number of send :"+nowString);
+        AtomicInteger idGetter = new AtomicInteger(threadNum);
+        ExecutorService executorService = new ThreadPoolExecutor(threadNum,threadNum,
+                0L, TimeUnit.HOURS,
+                new ArrayBlockingQueue(10),Executors.defaultThreadFactory());
+        while (idGetter.get()>0){
+            executorService.execute(new SendThread(props,topic,idGetter,interval));
         }
-        producer.flush();
-        producer.close();
 
+    }
+
+    static class SendThread extends Thread {
+        Properties props;
+        Producer<String, String> producer;
+        String topic;
+        int id;
+        long interval;
+
+        public SendThread(Properties props,String topic,AtomicInteger idGetter,long interval) {
+            this.topic = topic;
+            this.props = props;
+            this.producer = new KafkaProducer<String, String>(props);
+            this.id = idGetter.getAndDecrement();
+            this.interval = interval;
+        }
+
+        @Override
+        public void run() {
+            Runtime.getRuntime().addShutdownHook(new Thread(){
+                @Override
+                public void run() {
+                    producer.flush();
+                    producer.close();
+                }
+            });
+
+            while (true){
+                producer.send(new ProducerRecord<String, String>(topic,"key_"+ id, UUID.randomUUID().toString()));
+                try {
+                    Thread.sleep(interval);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+//                producer.flush();
+//                producer.close();
+                System.out.println(this.id+" p ");
+            }
+        }
     }
 }
