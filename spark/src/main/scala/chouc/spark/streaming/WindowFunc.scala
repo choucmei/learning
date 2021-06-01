@@ -38,22 +38,22 @@ object WindowFunc {
       $"name",$"sex"
     ).count()
     windowedCounts.printSchema()
-    val windowQuery = windowedCounts.writeStream.outputMode(OutputMode.Complete()).foreachBatch((ds,index)=>{
-      val simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-      ds.map(value =>{
-        val window = value.getAs[GenericRowWithSchema]("window")
-        val start = window.getAs[Timestamp]("start")
-        val end = window.getAs[Timestamp]("end")
-        val name = value.getAs[String]("name")
-        val sex = value.getAs[String]("sex")
-        val count = value.getAs[Long]("count")
-        s" start:${simpleDateFormat.format(start)} end:${simpleDateFormat.format(end)}  name:$name  sex:$sex count:$count"
-      }).write.text(s"/Users/chouc/Work/IdeaProjects/learning/learning/spark/src/main/resources/result/${simpleDateFormat.format(new Date())}")
+//    val windowQuery = windowedCounts.writeStream.outputMode(OutputMode.Complete()).foreachBatch((ds,index)=>{
+//      val simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+//      ds.map(value =>{
+//        val window = value.getAs[GenericRowWithSchema]("window")
+//        val start = window.getAs[Timestamp]("start")
+//        val end = window.getAs[Timestamp]("end")
+//        val name = value.getAs[String]("name")
+//        val sex = value.getAs[String]("sex")
+//        val count = value.getAs[Long]("count")
+//        s" start:${simpleDateFormat.format(start)} end:${simpleDateFormat.format(end)}  name:$name  sex:$sex count:$count"
+//      }).write.text(s"/Users/chouc/Work/IdeaProjects/learning/learning/spark/src/main/resources/result/${simpleDateFormat.format(new Date())}")
 
-    }).start()
+//    }).start()
 
 
-    windowQuery.awaitTermination()
+//    windowQuery.awaitTermination()
   }
 }
 case class P(name: String, sex: String, age: Int,timestamp: Long)

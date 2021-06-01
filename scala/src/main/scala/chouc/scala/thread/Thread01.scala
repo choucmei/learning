@@ -6,7 +6,9 @@ object Thread01 {
     val thread = new Thread(
       new Runnable {
       override def run(): Unit = {
-        for(i <- 1 to 100) println(i)
+        for(i <- 1 to 100){
+          println(i)
+        }
       }
     })
     thread.setDaemon(true)

@@ -5,7 +5,6 @@ import org.apache.spark.listen.{DStreamListener}
 import org.apache.spark.metric.{FailureNum, MetricMaster, MetricWork, SuccessNum}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.ui.dstream.{DStreamInfoPage, StreamingAdditionTab}
-import org.apache.spark.ui.utils.WebUiRegister
 
 object SocketWordCountUserDefine {
   def main(args: Array[String]): Unit = {
@@ -15,7 +14,6 @@ object SocketWordCountUserDefine {
     val sparkContext = new SparkContext(sparkConf)
 //    sparkConf.set("spark.ui.enabled","true")
     val sparkStreamContext = new StreamingContext(sparkContext,Seconds(1))
-    WebUiRegister.attachTab(sparkContext,new StreamingAdditionTab(sparkStreamContext))
     val metric = MetricMaster.getMetricMaster(sparkConf)
     sparkContext.setLogLevel("WARN")
     val dstream01 = sparkStreamContext.socketTextStream("localhost",1010)

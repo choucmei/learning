@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *  64kb/50毫秒
- *	argu: -Xms100m -Xmx100m -XX:+UseSerialGC +PrintGCDetails
+ *	argu: -Xms100m -Xmx100m -XX:+UseSerialGC -XX:+PrintGCDetails
  *
  */
 public class TestMemory {
@@ -22,17 +22,18 @@ public class TestMemory {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Thread.sleep(2000);
-		System.out.println("start ......");
-		fillHeap(100);
-		Thread.sleep(2000);
-
-		Runtime runtime = Runtime.getRuntime();
-
-		System.out.println(runtime.freeMemory());
-		// -Xmx100m
-		System.out.println(runtime.maxMemory());
-		// -Xms100m
-		System.out.println(runtime.totalMemory());
+		System.out.println(Integer.MAX_VALUE);
+//		Thread.sleep(2000);
+//		System.out.println("start ......");
+//		fillHeap(100);
+//		Thread.sleep(2000);
+//
+//		Runtime runtime = Runtime.getRuntime();
+//
+//		System.out.println(runtime.freeMemory());
+//		// -Xmx100m
+//		System.out.println(runtime.maxMemory());
+//		// -Xms100m
+//		System.out.println(runtime.totalMemory());
 	}
 }

@@ -50,7 +50,9 @@ class SparkFunctions {
   @Test
   def sqlWindowFunction(): Unit = {
     df.createOrReplaceTempView("tmp")
-    spark.sql("select * from (select name,group,value,rank() over(partition by group order by value desc) rank from tmp) where rank <= 1").show()
+    spark.sql("select * from (select name,group,value,rank() over(partition by group order by value desc) rank from tmp) ")
+
+    spark.sql("select name,group,value,row_number() over(partition by group order by value desc) rank from tmp ").show()
   }
 
 

@@ -29,7 +29,7 @@ public class CyclicBarrierTest {
         cyclicBarrierWorkThread01.start();
         cyclicBarrierWorkThread02.start();
         cyclicBarrierWorkThread03.start();
-        cyclicBarrierWorkThread03.interrupt();
+//        cyclicBarrierWorkThread03.interrupt();
         TimeUnit.SECONDS.sleep(10);
         System.out.println("isBroken：" + cyclicBarrier.isBroken());
     }

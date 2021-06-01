@@ -3,7 +3,6 @@ package chouc.java.nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.*;
 import java.nio.charset.Charset;
 import java.util.Iterator;
@@ -25,16 +24,16 @@ public class SelectorServer {
         serverSocketChannel.configureBlocking(false);
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (true) {
-            selector.select(1000);
+            selector.select(3000);
             System.out.println(" select ");
             Set<SelectionKey> keySet = selector.selectedKeys();
-            System.out.println(" keyset size"+keySet.size());
+            System.out.println(" keyset size" + keySet.size());
 
             Iterator<SelectionKey> iterator = keySet.iterator();
 
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 SelectionKey selectionKey = iterator.next();
-                System.out.println(" selected key "+selectionKey.toString());
+                System.out.println(" selected key " + selectionKey.toString());
                 if (selectionKey.isAcceptable()) {
                     ServerSocketChannel serverSocketChannelAddd = (ServerSocketChannel) selectionKey.channel();
                     try {
@@ -55,6 +54,23 @@ public class SelectorServer {
                     ByteBuffer readBuffer = ByteBuffer.allocate(1024);
                     try {
                         readChannel.read(readBuffer);
+//                        CharBuffer charBuffer = CharBuffer.allocate(1024);
+//                        charBuffer.append("geted");
+//                        readChannel.write(Charset.forName("UTF-8").encode(charBuffer));
+                        readBuffer.flip();
+                        System.out.println(Charset.forName("UTF-8").decode(readBuffer).toString());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    readChannel.register(selectionKey.selector(), SelectionKey.OP_WRITE);
+                }
+                if (selectionKey.isWritable()) {
+                    System.out.println("write able");
+                    SocketChannel readChannel = (SocketChannel) selectionKey.channel();
+                    ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+                    try {
+                        readBuffer.put("nononono".getBytes());
+                        readChannel.write(readBuffer);
 //                        CharBuffer charBuffer = CharBuffer.allocate(1024);
 //                        charBuffer.append("geted");
 //                        readChannel.write(Charset.forName("UTF-8").encode(charBuffer));

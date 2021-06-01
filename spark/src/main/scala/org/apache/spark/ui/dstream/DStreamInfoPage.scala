@@ -22,7 +22,7 @@ class DStreamInfoPage(parent:StreamingAdditionTab) extends WebUIPage(""){
         <a href="./?command=stop">stop</a>
       </div>
 
-    UIUtils.headerSparkPage(request,"mxb",Seq(content),parent,None,None)
+    UIUtils.headerSparkPage(request,"mxb",Seq(content),parent,Option(""),false,false)
   }
 
   def execute(commond:String): Unit ={

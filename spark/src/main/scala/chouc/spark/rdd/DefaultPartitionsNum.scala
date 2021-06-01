@@ -21,7 +21,6 @@ object DefaultPartitionsNum {
     val rdd1 = sparkContext.textFile("D:\\Development\\IdeaProjects\\chouc\\learning\\spark\\src\\main\\resources\\example\\content")
     println(rdd1.getNumPartitions)
     val rdd2 = rdd1.flatMap(_.split(" ")).map((_, 1))
-
     sparkContext.broadcast()
 
     rdd2.checkpoint()
