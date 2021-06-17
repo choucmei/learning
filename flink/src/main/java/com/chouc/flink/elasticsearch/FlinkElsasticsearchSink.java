@@ -41,6 +41,7 @@ public class FlinkElsasticsearchSink {
 
         dataStreamSource.addSink(elasticsearchSinkBuilder.build());
         System.out.println(1);
+        System.out.println(2);
         executionEnvironment.execute("flink2elasticsearch");
 
     }
