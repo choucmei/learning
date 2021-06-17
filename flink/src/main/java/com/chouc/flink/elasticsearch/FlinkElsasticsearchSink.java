@@ -40,7 +40,7 @@ public class FlinkElsasticsearchSink {
         elasticsearchSinkBuilder.setBulkFlushInterval(1000);
 
         dataStreamSource.addSink(elasticsearchSinkBuilder.build());
-
+        System.out.println(1);
         executionEnvironment.execute("flink2elasticsearch");
 
     }
