@@ -36,20 +36,20 @@ public class FlinkStreamSplitDemo {
         list.add(Tuple3.of(0, 6, 26));
         list.add(Tuple3.of(0, 7, 27));
         DataStream<Tuple3<Integer, Integer, Integer>> ds = env.fromCollection(list);
-        SplitStream<Tuple3<Integer, Integer, Integer>> splitStream = ds.split(new OutputSelector<Tuple3<Integer, Integer, Integer>>() {
-            @Override
-            public Iterable<String> select(Tuple3<Integer, Integer, Integer> value) {
-                List<String> tags = new ArrayList<>();
-                if (value.f0 == 0) {
-                    tags.add("zeroStream");
-                } else if (value.f0 == 1) {
-                    tags.add("oneStream");
-                }
-                return tags;
-            }
-        });
-        splitStream.select("zeroStream").printToErr();
-        splitStream.select("oneStream").printToErr();
-        env.execute();
+//        SplitStream<Tuple3<Integer, Integer, Integer>> splitStream = ds.split(new OutputSelector<Tuple3<Integer, Integer, Integer>>() {
+//            @Override
+//            public Iterable<String> select(Tuple3<Integer, Integer, Integer> value) {
+//                List<String> tags = new ArrayList<>();
+//                if (value.f0 == 0) {
+//                    tags.add("zeroStream");
+//                } else if (value.f0 == 1) {
+//                    tags.add("oneStream");
+//                }
+//                return tags;
+//            }
+//        });
+//        splitStream.select("zeroStream").printToErr();
+//        splitStream.select("oneStream").printToErr();
+//        env.execute();
     }
 }

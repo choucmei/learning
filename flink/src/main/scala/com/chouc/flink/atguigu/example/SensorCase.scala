@@ -19,7 +19,8 @@ import org.apache.kafka.clients.consumer.KafkaConsumer
 object SensorCase {
   def main(args: Array[String]): Unit = {
     val environment = StreamExecutionEnvironment.getExecutionEnvironment
-    import org.apache.flink.streaming.api.scala.createTypeInformation
+//    import org.apache.flink.streaming.api.scala.createTypeInformation
+    import org.apache.flink.streaming.api.scala._
     val properties = new Properties
     properties.setProperty("bootstrap.servers", "127.0.0.1:9092")
     val flinkKafkaConsumer = new FlinkKafkaConsumer[String]("flink_learning", new SimpleStringSchema, properties)

@@ -31,39 +31,39 @@ public class TableAPIDemo {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
         DataStreamSource<EntityItem> source = env.addSource(new UserDefineItemSource());
-        DataStream<EntityItem> evenDataStream = source.split(new OutputSelector<EntityItem>() {
-            @Override
-            public Iterable<String> select(EntityItem value) {
-                List<String> output = new ArrayList<>();
-                if (value.getId() % 2 == 0) {
-                    output.add("even");
-                } else {
-                    output.add("odd");
-                }
-                return output;
-            }
-        }).select("even");
-        DataStream<EntityItem> oddDataStream = source.split(new OutputSelector<EntityItem>() {
-            @Override
-            public Iterable<String> select(EntityItem value) {
-                List<String> output = new ArrayList<>();
-                if (value.getId() % 2 == 0) {
-                    output.add("even");
-                } else {
-                    output.add("odd");
-                }
-                return output;
-            }
-        }).select("odd");
-        tableEnv.createTemporaryView("evenTable", evenDataStream, $("id"), $("name"));
-        tableEnv.createTemporaryView("oddTable", oddDataStream, $("id"), $("name"));
-        Table queryTable = tableEnv.sqlQuery("select a.id as fId,a.name as fName,b.id as sId,b.name as sName from evenTable as a join oddTable as b on a.name = b.name");
-        queryTable.printSchema();
-        TypeInformation<Tuple4<Integer, String, Integer, String>> info = TypeInformation.of(new TypeHint<Tuple4<Integer, String, Integer, String>>() {
-        });
-//        tableEnv.toRetractStream(queryTable, EntityJoinItem.class).print();
-        tableEnv.toRetractStream(queryTable, info).print();
-        env.execute("streaming sql job");
+//        DataStream<EntityItem> evenDataStream = source.split(new OutputSelector<EntityItem>() {
+//            @Override
+//            public Iterable<String> select(EntityItem value) {
+//                List<String> output = new ArrayList<>();
+//                if (value.getId() % 2 == 0) {
+//                    output.add("even");
+//                } else {
+//                    output.add("odd");
+//                }
+//                return output;
+//            }
+//        }).select("even");
+//        DataStream<EntityItem> oddDataStream = source.split(new OutputSelector<EntityItem>() {
+//            @Override
+//            public Iterable<String> select(EntityItem value) {
+//                List<String> output = new ArrayList<>();
+//                if (value.getId() % 2 == 0) {
+//                    output.add("even");
+//                } else {
+//                    output.add("odd");
+//                }
+//                return output;
+//            }
+//        }).select("odd");
+//        tableEnv.createTemporaryView("evenTable", evenDataStream, $("id"), $("name"));
+//        tableEnv.createTemporaryView("oddTable", oddDataStream, $("id"), $("name"));
+//        Table queryTable = tableEnv.sqlQuery("select a.id as fId,a.name as fName,b.id as sId,b.name as sName from evenTable as a join oddTable as b on a.name = b.name");
+//        queryTable.printSchema();
+//        TypeInformation<Tuple4<Integer, String, Integer, String>> info = TypeInformation.of(new TypeHint<Tuple4<Integer, String, Integer, String>>() {
+//        });
+////        tableEnv.toRetractStream(queryTable, EntityJoinItem.class).print();
+//        tableEnv.toRetractStream(queryTable, info).print();
+//        env.execute("streaming sql job");
     }
 }
 

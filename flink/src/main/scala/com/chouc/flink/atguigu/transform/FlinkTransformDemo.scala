@@ -30,7 +30,7 @@ object FlinkTransformDemo {
     env.fromCollection(ExampleData.getSensorData())
       .keyBy(s => s.id)
       .reduce((s1: Sensor, s2: Sensor) => {
-        Sensor(s1.id, s2.ts, s1.tmp.max(s2.tmp))
+        Sensor(s1.id, s1.tmp.max(s2.tmp), s2.ts)
       }).print()
 
     env.execute()

@@ -48,12 +48,12 @@ class MapStateDistinctFunction extends KeyedProcessFunction<Tuple, Tuple2<String
     public void open(Configuration parameters) throws Exception {
         super.open(parameters);
         //我们设置 ValueState 的 TTL 的生命周期为24小时，到期自动清除状态
-        StateTtlConfig stateTtlConfig = StateTtlConfig.newBuilder(Time.hours(24))
+        StateTtlConfig stateConfig = StateTtlConfig.newBuilder(Time.hours(24))
                 .setUpdateType(StateTtlConfig.UpdateType.OnCreateAndWrite)
                 .setStateVisibility(StateTtlConfig.StateVisibility.NeverReturnExpired)
                 .build();
         ValueStateDescriptor<Integer> vsd = new ValueStateDescriptor("count", Integer.class);
-        vsd.enableTimeToLive(stateTtlConfig);
+        vsd.enableTimeToLive(stateConfig);
         counts = getRuntimeContext().getState(vsd);
     }
 

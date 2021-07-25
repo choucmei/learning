@@ -53,7 +53,7 @@ object WindowTimeDemo {
     val lateStream = new OutputTag[Sensor]("late") {}
     val sensorAggregate = source.map(s => {
       val strings = s.split(",")
-      Sensor(strings(0), strings(1).toLong, strings(2).toDouble)
+      Sensor(strings(0), strings(1).toDouble, strings(2).toLong)
     }).assignTimestampsAndWatermarks(WatermarkStrategy.forMonotonousTimestamps().withTimestampAssigner(new SerializableTimestampAssigner[Sensor]() {
         override def extractTimestamp(element: Sensor, recordTimestamp: Long): Long = {
           element.ts

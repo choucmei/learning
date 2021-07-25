@@ -17,13 +17,13 @@ class FlinkSplitDemo {
 
 object FlinkSplitDemo {
   def main(args: Array[String]): Unit = {
-    val env = StreamExecutionEnvironment.getExecutionEnvironment
-    import org.apache.flink.streaming.api.scala.createTypeInformation
-    val splitStream = env.fromCollection(ExampleData.getSensorData())
-      .split(s => if (s.tmp > 9.2) Seq("high") else Seq("low"))
-    splitStream.select("high").print("high")
-    splitStream.select("low").print("low")
-    splitStream.select("high", "low").print("all")
-    env.execute()
+//    val env = StreamExecutionEnvironment.getExecutionEnvironment
+//    import org.apache.flink.streaming.api.scala.createTypeInformation
+//    val splitStream = env.fromCollection(ExampleData.getSensorData())
+//      .split(s => if (s.tmp > 9.2) Seq("high") else Seq("low"))
+//    splitStream.select("high").print("high")
+//    splitStream.select("low").print("low")
+//    splitStream.select("high", "low").print("all")
+//    env.execute()
   }
 }

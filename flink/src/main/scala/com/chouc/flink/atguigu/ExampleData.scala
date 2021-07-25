@@ -14,32 +14,32 @@ class ExampleData {
 
 }
 
-case class Sensor(id: String, ts: Long, tmp: Double)
+case class Sensor(id: String, tmp: Double, ts: Long)
 
 
 object ExampleData {
   def getSensorData(): List[Sensor] = {
     List(
-      Sensor("id1", 1612504440L, 9.1),
-      Sensor("id1", 1612504441L, 9.2),
-      Sensor("id1", 1612504442L, 9.3),
-      Sensor("id1", 1612504443L, 9.4),
-      Sensor("id1", 1612504444L, 9.5),
-      Sensor("id1", 1612504445L, 9.6),
-      Sensor("id1", 1612504446L, 9.1),
-      Sensor("id1", 1612504447L, 9.2),
-      Sensor("id1", 1612504448L, 9.3),
-      Sensor("id1", 1612504449L, 9.4),
-      Sensor("id2", 1612504440L, 9.1),
-      Sensor("id2", 1612504441L, 9.2),
-      Sensor("id2", 1612504442L, 9.3),
-      Sensor("id2", 1612504443L, 9.4),
-      Sensor("id2", 1612504444L, 9.5),
-      Sensor("id2", 1612504445L, 9.6),
-      Sensor("id2", 1612504446L, 9.1),
-      Sensor("id2", 1612504447L, 9.2),
-      Sensor("id2", 1612504448L, 9.3),
-      Sensor("id2", 1612504449L, 9.4)
+      Sensor("id1", 9.1, 1612504440L),
+      Sensor("id1", 9.2, 1612504441L),
+      Sensor("id1", 9.3, 1612504442L),
+      Sensor("id1", 9.4, 1612504443L),
+      Sensor("id1", 9.5, 1612504444L),
+      Sensor("id1", 9.6, 1612504445L),
+      Sensor("id1", 9.1, 1612504446L),
+      Sensor("id1", 9.2, 1612504447L),
+      Sensor("id1", 9.3, 1612504448L),
+      Sensor("id1", 9.4, 1612504449L),
+      Sensor("id2", 9.1, 1612504440L),
+      Sensor("id2", 9.2, 1612504441L),
+      Sensor("id2", 9.3, 1612504442L),
+      Sensor("id2", 9.4, 1612504443L),
+      Sensor("id2", 9.5, 1612504444L),
+      Sensor("id2", 9.6, 1612504445L),
+      Sensor("id2", 9.1, 1612504446L),
+      Sensor("id2", 9.2, 1612504447L),
+      Sensor("id2", 9.3, 1612504448L),
+      Sensor("id2", 9.4, 1612504449L)
     )
   }
 

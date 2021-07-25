@@ -24,7 +24,7 @@ object WindowCountDemo {
     val source = environment.addSource(new SocketTextStreamFunction("localhost", 8888, "\n", 3))
     source.map(s => {
       val strings = s.split(",")
-      Sensor(strings(0), strings(1).toLong, strings(2).toDouble)
+      Sensor(strings(0), strings(1).toDouble, strings(2).toLong)
     }).keyBy(s => s.id)
       .countWindow(4, 2)
       .aggregate(new AggregateFunction[Sensor, (Int, Double), (Int, Double, Double)] {

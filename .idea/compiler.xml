@@ -2,18 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="example" />
         <module name="flink" />
-        <module name="hadoop" />
         <module name="java" />
-        <module name="others" />
+        <module name="storm" />
+        <module name="elasticsearch" />
         <module name="scala" />
         <module name="spark" />
-        <module name="storm" />
+        <module name="hadoop" />
+        <module name="others" />
+        <module name="example" />
+        <module name="algorithm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />
