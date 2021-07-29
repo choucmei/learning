@@ -30,7 +30,7 @@ public class StreamSourceUtils {
                 .setDeserializer(new KafkaRecordDeserializationSchema<CustomRecord>() {
                     @Override
                     public void deserialize(ConsumerRecord<byte[], byte[]> record, Collector<CustomRecord> out) throws IOException {
-                        out.collect(new CustomRecord(record.topic(), record.offset(), record.timestamp(), new String(record.key() == null ? "".getBytes() : record.key()), new String(record.value())));
+                        out.collect(new CustomRecord(record.topic(), record.offset(), record.partition(), record.timestamp(), new String(record.key() == null ? "".getBytes() : record.key()), new String(record.value())));
                     }
 
                     @Override
@@ -45,6 +45,7 @@ public class StreamSourceUtils {
     public static class CustomRecord {
         private String topic;
         private long offset;
+        private long prition;
         private long timestamp;
         private String key;
         private String value;
@@ -52,12 +53,21 @@ public class StreamSourceUtils {
         public CustomRecord() {
         }
 
-        public CustomRecord(String topic, long offset, long timestamp, String key, String value) {
+        public CustomRecord(String topic, long offset, long prition, long timestamp, String key, String value) {
             this.topic = topic;
             this.offset = offset;
+            this.prition = prition;
             this.timestamp = timestamp;
             this.key = key;
             this.value = value;
+        }
+
+        public long getPrition() {
+            return prition;
+        }
+
+        public void setPrition(long prition) {
+            this.prition = prition;
         }
 
         public String getTopic() {
