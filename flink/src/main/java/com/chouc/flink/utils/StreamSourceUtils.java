@@ -45,7 +45,7 @@ public class StreamSourceUtils {
     public static class CustomRecord {
         private String topic;
         private long offset;
-        private long prition;
+        private long partition;
         private long timestamp;
         private String key;
         private String value;
@@ -53,21 +53,21 @@ public class StreamSourceUtils {
         public CustomRecord() {
         }
 
-        public CustomRecord(String topic, long offset, long prition, long timestamp, String key, String value) {
+        public CustomRecord(String topic, long offset, long partition, long timestamp, String key, String value) {
             this.topic = topic;
             this.offset = offset;
-            this.prition = prition;
+            this.partition = partition;
             this.timestamp = timestamp;
             this.key = key;
             this.value = value;
         }
 
-        public long getPrition() {
-            return prition;
+        public long getPartition() {
+            return partition;
         }
 
-        public void setPrition(long prition) {
-            this.prition = prition;
+        public void setPartition(long partition) {
+            this.partition = partition;
         }
 
         public String getTopic() {
