@@ -20,11 +20,15 @@ public class StreamSourceUtils {
     }
 
     public static DataStreamSource<CustomRecord> getKafkaStream() {
+       return getKafkaStream("flink_learning");
+    }
+
+    public static DataStreamSource<CustomRecord> getKafkaStream(String topic) {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         KafkaSource<CustomRecord> source;
         source = KafkaSource.<CustomRecord>builder()
                 .setBootstrapServers("s1:9092")
-                .setTopics("user_behavior")
+                .setTopics(topic)
                 .setGroupId("StreamSourceUtils")
                 .setStartingOffsets(OffsetsInitializer.latest())
                 .setDeserializer(new KafkaRecordDeserializationSchema<CustomRecord>() {
