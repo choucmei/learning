@@ -6,7 +6,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 /**
  * https://ci.apache.org/projects/flink/flink-docs-release-1.13/zh/docs/connectors/table/kafka/
  */
-public class FlinkTableKafkaSource {
+public class FlinkTableSourceKafka {
     public static void main(String[] args) {
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);

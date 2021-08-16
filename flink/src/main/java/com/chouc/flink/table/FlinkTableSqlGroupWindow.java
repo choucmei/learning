@@ -22,7 +22,7 @@ import static org.apache.flink.table.api.Expressions.lit;
 
 
 // https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/table/tableapi/#group-windows
-public class FlinkTableGroupWindow {
+public class FlinkTableSqlGroupWindow {
     public static void main(String[] args) {
         StreamExecutionEnvironment streamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment streamTableEnvironment = StreamTableEnvironment.create(streamExecutionEnvironment);

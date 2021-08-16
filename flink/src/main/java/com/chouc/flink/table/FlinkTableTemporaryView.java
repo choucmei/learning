@@ -13,13 +13,16 @@ public class FlinkTableTemporaryView {
         StreamExecutionEnvironment streamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment streamTableEnvironment = StreamTableEnvironment.create(streamExecutionEnvironment);
         DataStreamSource<String> socketStream = StreamSourceUtils.getSocketStream();
-//        streamTableEnvironment.createTemporaryView("socket_view", socketStream);
 
-//        streamTableEnvironment.createTemporaryView("socket_view", socketStream, Schema.newBuilder()
-//                .column("f0", "String")
-//                .build());
 
-        streamTableEnvironment.createTemporaryView("socket_view", socketStream, $("col"));
+        streamTableEnvironment.createTemporaryView("socket_view1", socketStream);
+
+        streamTableEnvironment.createTemporaryView("socket_view2", socketStream, $("col"));
+
+        streamTableEnvironment.createTemporaryView("socket_view3", socketStream, Schema.newBuilder()
+                .column("f0", "String")
+                .build());
+
 
         streamTableEnvironment.executeSql("select * from socket_view").print();
     }

@@ -11,11 +11,15 @@ import org.apache.flink.table.api.bridge.java.internal.StreamTableEnvironmentImp
 
 import static org.apache.flink.table.api.Expressions.$;
 
-public class FlinkTableAggSink {
+public class FlinkTableSinkElasticSearch {
     public static void main(String[] args) {
         StreamExecutionEnvironment streamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment streamTableEnvironment =  StreamTableEnvironment.create(streamExecutionEnvironment);
-        DataStreamSource<StreamSourceUtils.CustomRecord> kafkaStream = StreamSourceUtils.getKafkaStream("user_behavior");
+        DataStreamSource<StreamSourceUtils.CustomRecord> kafkaStream = StreamSourceUtils.getKafkaStream();
+
+        /**
+         *  如果不设置主键就是 insert ，设置主键就是 upsert
+         */
         String sourceSql = "CREATE TABLE es_sink_table (" +
                 "  `topic` STRING," +
                 "  `partition` BIGINT," +

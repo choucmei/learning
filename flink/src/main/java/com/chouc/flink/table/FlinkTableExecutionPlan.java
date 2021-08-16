@@ -16,7 +16,7 @@ import org.apache.flink.table.api.bridge.java.BatchTableEnvironment;
  * @Description:
  * @date 2021/4/6
  */
-public class FlinkTablePlan {
+public class FlinkTableExecutionPlan {
     static class WC {
         public String word;
         public long frequency;
