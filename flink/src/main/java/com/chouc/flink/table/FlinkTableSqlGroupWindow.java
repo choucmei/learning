@@ -34,8 +34,6 @@ public class FlinkTableSqlGroupWindow {
         // set to Los_Angeles time zone
 //        streamTableEnvironment.getConfig().setLocalTimeZone(ZoneId.of("America/Los_Angeles"));
 
-
-//        DataStreamSource<StreamSourceUtils.CustomRecord> socketStream = StreamSourceUtils.getKafkaStream("user_behavior");
         SingleOutputStreamOperator<Tuple3<String, Long, Long>> socketStream = StreamSourceUtils.getSocketStream().map(new RichMapFunction<String, Tuple3<String, Long, Long>>() {
             @Override
             public Tuple3<String, Long, Long> map(String value) throws Exception {
@@ -51,14 +49,13 @@ public class FlinkTableSqlGroupWindow {
         Table table = streamTableEnvironment.fromDataStream(socketStream, $("value"), $("partition"), $("f2").rowtime());
 
         // table API
-//        table.window(Tumble.over(lit(5).seconds()).on($("f2")).as("t_w"))
-//                .groupBy($("partition"), $("t_w"))
-//                .select($("partition"), $("partition").count().as("partition_count"), $("t_w").start().as("w_start"), $("t_w").end().as("w_end"))
-//                .execute();
-//                .print();
+        table.window(Tumble.over(lit(5).seconds()).on($("f2")).as("t_w"))
+                .groupBy($("partition"), $("t_w"))
+                .select($("partition"), $("partition").count().as("partition_count"), $("t_w").start().as("w_start"), $("t_w").end().as("w_end"))
+                .execute()
+                .print();
 
         // SQL
-
         streamTableEnvironment.createTemporaryView("tb",table);
         String sql ="SELECT `partition`, count(`partition`) as partition_count,tumble_start(f2, interval '5' second), tumble_end(f2, interval '5' second) \n" +
                     "  FROM tb " +
