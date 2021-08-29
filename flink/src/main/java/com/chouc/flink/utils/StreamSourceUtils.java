@@ -46,6 +46,28 @@ public class StreamSourceUtils {
         return env.fromSource(source, WatermarkStrategy.noWatermarks(), "kafkasource");
     }
 
+    public static DataStreamSource<CustomRecord> getKafkaStream(String topic,StreamExecutionEnvironment env) {
+        KafkaSource<CustomRecord> source;
+        source = KafkaSource.<CustomRecord>builder()
+                .setBootstrapServers("s1:9092")
+                .setTopics(topic)
+                .setGroupId("StreamSourceUtils")
+                .setStartingOffsets(OffsetsInitializer.latest())
+                .setDeserializer(new KafkaRecordDeserializationSchema<CustomRecord>() {
+                    @Override
+                    public void deserialize(ConsumerRecord<byte[], byte[]> record, Collector<CustomRecord> out) throws IOException {
+                        out.collect(new CustomRecord(record.topic(), record.offset(), record.partition(), record.timestamp(), new String(record.key() == null ? "".getBytes() : record.key()), new String(record.value())));
+                    }
+
+                    @Override
+                    public TypeInformation<CustomRecord> getProducedType() {
+                        return TypeInformation.of(CustomRecord.class);
+                    }
+                })
+                .build();
+        return env.fromSource(source, WatermarkStrategy.noWatermarks(), "kafkasource");
+    }
+
     public static class CustomRecord {
         private String topic;
         private long offset;
