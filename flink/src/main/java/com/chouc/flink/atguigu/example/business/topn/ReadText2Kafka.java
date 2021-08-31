@@ -1,5 +1,6 @@
-package com.chouc.flink.atguigu.example.business.topn.datastream;
+package com.chouc.flink.atguigu.example.business.topn;
 
+import com.chouc.flink.atguigu.example.business.topn.ClickEvent;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;

@@ -68,17 +68,6 @@ public class TopNByHeap implements Serializable {
 
 
     AdCountWithWindow[] getResult() {
-//        for (AdCountWithWindow a : tree) {
-//            System.out.println(a);
-//        }
-//
-//        while (k - 1 > 0) {
-//            AdCountWithWindow tmp = tree[0];
-//            tree[0] = tree[k - 1];
-//            tree[k - 1] = tmp;
-//            heapAdjust(tree, 0, k - 2);
-//            k--;
-//        }
         return tree;
     }
 

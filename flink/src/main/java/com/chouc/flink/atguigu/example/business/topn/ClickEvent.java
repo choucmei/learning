@@ -1,4 +1,4 @@
-package com.chouc.flink.atguigu.example.business.topn.datastream;
+package com.chouc.flink.atguigu.example.business.topn;
 
 public class ClickEvent {
     private String userId;
