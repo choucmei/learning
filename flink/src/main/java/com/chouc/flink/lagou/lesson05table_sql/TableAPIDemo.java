@@ -1,21 +1,12 @@
 package com.chouc.flink.lagou.lesson05table_sql;
 
-import org.apache.flink.api.common.typeinfo.TypeHint;
-import org.apache.flink.api.common.typeinfo.TypeInformation;
-import org.apache.flink.api.java.tuple.Tuple4;
-import org.apache.flink.streaming.api.collector.selector.OutputSelector;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import static org.apache.flink.table.api.Expressions.$;
 
 /**
  * @author chouc
@@ -26,6 +17,7 @@ import static org.apache.flink.table.api.Expressions.$;
  * @date 2020/8/23
  */
 
+@Deprecated
 public class TableAPIDemo {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();

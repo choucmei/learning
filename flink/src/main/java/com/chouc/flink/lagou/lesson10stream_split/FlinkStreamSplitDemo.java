@@ -1,9 +1,7 @@
 package com.chouc.flink.lagou.lesson10stream_split;
 
 import org.apache.flink.api.java.tuple.Tuple3;
-import org.apache.flink.streaming.api.collector.selector.OutputSelector;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.SplitStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 import java.util.ArrayList;
@@ -17,6 +15,7 @@ import java.util.List;
  * @Description:
  * @date 2020/9/20
  */
+@Deprecated
 public class FlinkStreamSplitDemo {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
@@ -50,6 +49,6 @@ public class FlinkStreamSplitDemo {
 //        });
 //        splitStream.select("zeroStream").printToErr();
 //        splitStream.select("oneStream").printToErr();
-//        env.execute();
+        env.execute();
     }
 }
