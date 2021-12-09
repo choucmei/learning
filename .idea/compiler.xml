@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="flink" />
+        <module name="spark2" />
         <module name="java" />
         <module name="storm" />
+        <module name="spark3" />
         <module name="elasticsearch" />
         <module name="scala" />
-        <module name="spark" />
         <module name="hadoop" />
         <module name="others" />
         <module name="example" />

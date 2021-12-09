@@ -3,9 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-
-
     <groupId>chouc</groupId>
     <artifactId>learning</artifactId>
     <packaging>pom</packaging>
@@ -16,11 +13,12 @@
         <module>storm</module>
         <module>others</module>
         <module>scala</module>
-        <module>spark</module>
+        <module>spark2</module>
         <module>example</module>
         <module>flink</module>
         <module>elasticsearch</module>
         <module>algorithm</module>
+        <module>spark3</module>
     </modules>
 
     <repositories>
@@ -61,72 +59,21 @@
         <hbase.old.version>1.4.9</hbase.old.version>
         <hbase.version>2.1.5</hbase.version>
         <hadoop.version>2.9.2</hadoop.version>
-        <spark.version>3.0.0</spark.version>
-        <spark.version.2.4>2.4.6</spark.version.2.4>
+        <spark.version.3>3.0.0</spark.version.3>
+        <spark.version.2>2.4.6</spark.version.2>
         <flink.version>1.13.2</flink.version>
         <flink.version.1.10.1>1.10.1</flink.version.1.10.1>
-        <scala.version>2.11.8</scala.version>
-        <scala.version.2.12.11>2.12.14</scala.version.2.12.11>
-        <scala.binary.version>2.12</scala.binary.version>
+        <scala.version.2.11>2.11.8</scala.version.2.11>
+        <scala.version.2.12>2.12.14</scala.version.2.12>
+        <scala.binary.version.2.12>2.12</scala.binary.version.2.12>
         <scala.binary.version.2.11>2.11</scala.binary.version.2.11>
         <storm.version>1.2.3</storm.version>
         <zk.version>3.5.5</zk.version>
         <kafka.version>0.10.0.0</kafka.version>
+        <hudi.version>0.10.0</hudi.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-core</artifactId>
-            <version>1.0.8</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>log4j</artifactId>
-                    <groupId>log4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version.2.12.11}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-
-    </dependencies>
-
 
     <build>
         <plugins>
