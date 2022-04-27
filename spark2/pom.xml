@@ -279,6 +279,19 @@
             <version>${spark.version.2}</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.apache.iceberg</groupId>
+            <artifactId>iceberg-core</artifactId>
+            <version>0.12.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.iceberg</groupId>
+            <artifactId>iceberg-spark-runtime</artifactId>
+            <version>0.12.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

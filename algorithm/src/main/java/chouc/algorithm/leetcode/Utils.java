@@ -26,6 +26,14 @@ public class Utils {
         System.out.println("]");
     }
 
+    public static void printArray(String[] n) {
+        System.out.printf("[");
+        for (int i = 0; i < n.length; i++) {
+            System.out.printf(n[i] + ",");
+        }
+        System.out.println("]");
+    }
+
     public static void printStringArray(String[] n) {
         System.out.printf("[");
         for (int i = 0; i < n.length; i++) {

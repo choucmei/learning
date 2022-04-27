@@ -58,6 +58,7 @@ public class DataStreamWordCount {
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(2);
         DataStreamSource<String> streamSource = env.addSource(new SocketTextStreamFunction("localhost", 9999, "\n", 1));
         DataStream<EntityWC> out = streamSource.flatMap(new RichFlatMapFunction<String, EntityWC>() {
             @Override
