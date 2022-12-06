@@ -1,8 +1,8 @@
 package chouc.algorithm.t;
 
-import java.util.Arrays;
+import chouc.algorithm.common.Utils;
 
-import chouc.algorithm.leetcode.Utils;
+import java.util.Arrays;
 
 public class Test {
 

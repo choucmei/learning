@@ -1,5 +1,7 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+
 /**
  * @author chouc
  * @version V1.0
@@ -9,17 +11,6 @@ package chouc.algorithm.leetcode;
  * @date 2020/10/10
  */
 public class C142LinkListCycleNodeS2 {
-
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public ListNode detectCycle(ListNode head) {
         ListNode s = head;

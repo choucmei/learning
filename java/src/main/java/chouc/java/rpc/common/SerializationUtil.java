@@ -12,7 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 序列化工具类（基于 Protostuff 实现）
- *
  */
 public class SerializationUtil {
 
@@ -22,8 +21,10 @@ public class SerializationUtil {
 
     private SerializationUtil() {
     }
+
     /**
      * 获取类的schema
+     *
      * @param cls
      * @return
      */
@@ -61,10 +62,10 @@ public class SerializationUtil {
      */
     public static <T> T deserialize(byte[] data, Class<T> cls) {
         try {
-        	/*
-        	 * 如果一个类没有参数为空的构造方法时候，那么你直接调用newInstance方法试图得到一个实例对象的时候是会抛出异常的
-        	 * 通过ObjenesisStd可以完美的避开这个问题
-        	 * */
+            /*
+             * 如果一个类没有参数为空的构造方法时候，那么你直接调用newInstance方法试图得到一个实例对象的时候是会抛出异常的
+             * 通过ObjenesisStd可以完美的避开这个问题
+             * */
             T message = (T) objenesis.newInstance(cls);//实例化
             Schema<T> schema = getSchema(cls);//获取类的schema
             ProtostuffIOUtil.mergeFrom(data, message, schema);

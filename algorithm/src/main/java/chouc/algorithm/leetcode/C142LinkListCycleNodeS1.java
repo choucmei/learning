@@ -1,5 +1,7 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,17 +14,6 @@ import java.util.Set;
  * @date 2020/10/10
  */
 public class C142LinkListCycleNodeS1 {
-
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public ListNode detectCycle(ListNode head) {
         Set<ListNode> set = new HashSet<>();

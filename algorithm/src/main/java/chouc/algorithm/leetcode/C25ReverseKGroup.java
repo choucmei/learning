@@ -1,5 +1,8 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+import chouc.algorithm.common.Utils;
+
 /**
  * @author chouc
  * @version V1.0

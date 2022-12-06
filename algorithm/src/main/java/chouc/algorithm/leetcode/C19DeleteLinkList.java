@@ -1,5 +1,7 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,22 +14,6 @@ import java.util.List;
  * @date 2020/12/12
  */
 public class C19DeleteLinkList {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val,ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         List<ListNode> list = new ArrayList<>();

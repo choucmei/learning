@@ -1,6 +1,6 @@
 package chouc.scala
 
-import ru.yandex.clickhouse.BalancedClickhouseDataSource
+//import ru.yandex.clickhouse.BalancedClickhouseDataSource
 
 /**
   * @Title: Test

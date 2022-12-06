@@ -1,6 +1,6 @@
 package chouc.algorithm.leetcode;
 
-import chouc.algorithm.node.TreeNode;
+import chouc.algorithm.common.TreeNode;
 
 public class T101IsSymmetric {
     public boolean isSymmetric(TreeNode root) {

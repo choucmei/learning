@@ -6,24 +6,6 @@ import java.util.Set;
 public class T3lengthOfLongestSubstring {
 
 
-//    public int lengthOfLongestSubstring(String s) {
-//        Set<Character> set = new HashSet<>(s.length());
-//        int maxLength = 0;
-//        for (int i = 0; i < s.length(); i++) {
-//            for (int j = i; j < s.length(); j++) {
-//                char c = s.charAt(j);
-//                if (set.contains(c)){
-//                    break;
-//                } else {
-//                    set.add(c);
-//                }
-//            }
-//            maxLength = Math.max(maxLength,set.size());
-//            set.clear();
-//        }
-//        return maxLength;
-//    }
-
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>(s.length());
         int left = 0;

@@ -1,5 +1,7 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+
 /**
  * @author chouc
  * @version V1.0
@@ -9,16 +11,6 @@ package chouc.algorithm.leetcode;
  * @date 2020/10/14
  */
 public class C2AddTwoNumbers {
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode n1 = l1, n2 = l2;
         int v1, v2, sum, add = 0;

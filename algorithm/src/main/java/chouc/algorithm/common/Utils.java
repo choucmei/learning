@@ -1,4 +1,4 @@
-package chouc.algorithm.leetcode;
+package chouc.algorithm.common;
 
 import java.util.List;
 
@@ -11,11 +11,21 @@ import java.util.List;
  * @date 2020/12/29
  */
 public class Utils {
-    public static void printLinkList(ListNode n) {
-        while (n != null) {
-            System.out.println(n.val);
-            n = n.next;
+    public static void printLinkList(ListNode head) {
+        ListNode node = head;
+        while (node != null) {
+            System.out.print(node.val + " -> ");
+            node = node.next;
         }
+        System.out.println("null ");
+    }
+
+    public static <T> void printArray(T[] n) {
+        System.out.printf("[");
+        for (int i = 0; i < n.length; i++) {
+            System.out.printf(n[i] + ",");
+        }
+        System.out.println("]");
     }
 
     public static void printArray(int[] n) {
@@ -26,10 +36,11 @@ public class Utils {
         System.out.println("]");
     }
 
-    public static void printArray(String[] n) {
+
+    public static <T> void printArrayInArray(T[][] n) {
         System.out.printf("[");
         for (int i = 0; i < n.length; i++) {
-            System.out.printf(n[i] + ",");
+            printArray(n[i]);
         }
         System.out.println("]");
     }
@@ -72,5 +83,14 @@ public class Utils {
         }
         System.out.println("]");
     }
+
+    public static void printBooleanArray(boolean[][] n) {
+        System.out.printf("[");
+        for (int i = 0; i < n.length; i++) {
+            printBooleanArray(n[i]);
+        }
+        System.out.println("]");
+    }
+
 
 }

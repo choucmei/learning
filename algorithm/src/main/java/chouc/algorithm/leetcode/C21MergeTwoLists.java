@@ -1,5 +1,7 @@
 package chouc.algorithm.leetcode;
 
+import chouc.algorithm.common.ListNode;
+
 /**
  * @author chouc
  * @version V1.0
@@ -9,23 +11,6 @@ package chouc.algorithm.leetcode;
  * @date 2020/12/13
  */
 public class C21MergeTwoLists {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode newNode = new ListNode(0);
         if (l1 == null){
