@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spark.version.3.2>3.2.2</spark.version.3.2>
+        <spark.version.3.2>3.4.0</spark.version.3.2>
         <hudi.version>0.12.0</hudi.version>
         <scala.binary.version>2.12</scala.binary.version>
     </properties>
